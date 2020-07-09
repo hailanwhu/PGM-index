@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The PGM-index</title>
+    <link>https://pgm.di.unipi.it/widgets/</link>
+    <description>Recent content on The PGM-index</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://pgm.di.unipi.it/widgets/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://pgm.di.unipi.it/widgets/description/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/description/</guid>
+      <description>Unlike traditional tree-based indexes that are blind to the possible regularity present in the input data, the PGM-index exploits a learned mapping between the indexed keys and their location in memory.</description>
+    </item>
+    
+    <item>
+      <title>Features</title>
+      <link>https://pgm.di.unipi.it/widgets/features/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/features/</guid>
+      <description>Learned It is one of the first results on learned indexes which achieves astonishing performance by capturing the distribution of the input data.    Optimal Unlike some early results, the PGM&amp;#8209;index is a learned index with provably optimal time and space complexity guarantees.</description>
+    </item>
+    
+    <item>
+      <title>Running example</title>
+      <link>https://pgm.di.unipi.it/widgets/running-example/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/running-example/</guid>
+      <description>#include &amp;lt;vector&amp;gt;#include &amp;lt;cstdlib&amp;gt;#include &amp;lt;iostream&amp;gt;#include &amp;lt;algorithm&amp;gt;#include &amp;#34;pgm_index.hpp&amp;#34; int main(int argc, char **argv) { // Generate some random data  std::vector&amp;lt;int&amp;gt; dataset(1000000); std::generate(dataset.begin(), dataset.end(), std::rand); dataset.push_back(42); std::sort(dataset.begin(), dataset.end()); // Construct the PGM-index  const int epsilon = 128; // space-time trade-off parameter  PGMIndex&amp;lt;int, epsilon&amp;gt; index(dataset); // Query the PGM-index  auto q = 42; auto approx_range = index.</description>
+    </item>
+    
+    <item>
+      <title>Cite us</title>
+      <link>https://pgm.di.unipi.it/widgets/cite/</link>
+      <pubDate>Sun, 19 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/cite/</guid>
+      <description>If you use the library please put a link to this website and cite the following paper:
+Paolo Ferragina and Giorgio Vinciguerra. The PGM-index: a fully-dynamic compressed learned index with provable worst-case bounds.</description>
+    </item>
+    
+    <item>
+      <title>Some interesting uses of the PGM-index</title>
+      <link>https://pgm.di.unipi.it/widgets/applications/</link>
+      <pubDate>Thu, 17 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/applications/</guid>
+      <description>We would love to be informed whether you used our code in your projects. We will list the most interesting applications of the PGM-index here!</description>
+    </item>
+    
+    <item>
+      <title>Contribute</title>
+      <link>https://pgm.di.unipi.it/widgets/contribute/</link>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://pgm.di.unipi.it/widgets/contribute/</guid>
+      <description>There are a lot of ways to contribute on this project, just to mention a few:
+ Engineering the support for insertions and deletions. done! Making the index SIMD aware. For example, you could set the error to the SIMD register width and use vector instructions to traverse the levels of the index with no branches.</description>
+    </item>
+    
+  </channel>
+</rss>

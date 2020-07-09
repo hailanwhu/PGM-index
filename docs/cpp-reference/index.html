@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>C&#43;&#43; Reference - The PGM-index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://pgm.di.unipi.it/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.61d8cde5a12c74d3a0d83f3e3ef8998e0c155b035e09e2d8c60236ea7c11ce25.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    <div class="container pt-2 pt-md-6 pb-3 pb-md-6">
+      <div class="row">
+        <div class="col-12 col-md-3 mb-3">
+          <div class="sidebar">
+            
+<div class="docs-menu">
+  <h4>Docs</h4>
+  <ul>
+    
+    <li class="">
+      <a href="https://pgm.di.unipi.it/docs/building-the-code/">Building the code</a>
+    </li>
+    
+    <li class="active ">
+      <a href="https://pgm.di.unipi.it/docs/cpp-reference/">C&#43;&#43; Reference</a>
+    </li>
+    
+    <li class="">
+      <a href="https://pgm.di.unipi.it/docs/tuner/">Using the tuner</a>
+    </li>
+    
+  </ul>
+</div>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-9">
+          
+<h1 class="title">C&#43;&#43; Reference</h1>
+<div class="content ">
+  <style type="text/css" scoped>
+  code { padding: 0 !important; } 
+  h1:nth-of-type(n+3) { margin-top: 100px !important; }
+  h4 { margin-top: 40px !important; }
+  h2 + h4 { margin-top: 0px !important; }
+</style>
+<h1 id="summary">Summary</h1>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>class</code> <a href="#class_compressed_p_g_m_index"><code>CompressedPGMIndex</code></a></td>
+<td>A space-efficient and compressed index that finds the position of a sought key within a radius of <code>Epsilon</code>.</td>
+</tr>
+<tr>
+<td><code>class</code> <a href="#class_dynamic_p_g_m_index"><code>DynamicPGMIndex</code></a></td>
+<td>A sorted associative container that contains key-value pairs with unique keys.</td>
+</tr>
+<tr>
+<td><code>class</code> <a href="#class_p_g_m_index"><code>PGMIndex</code></a></td>
+<td>A space-efficient index that finds the position of a key within a radius of <code>Epsilon</code>.</td>
+</tr>
+<tr>
+<td><code>struct</code> <a href="#struct_approx_pos"><code>ApproxPos</code></a></td>
+<td>A struct that stores the result of a query to a <a href="#class_p_g_m_index">PGMIndex</a>, that is, a range [<a href="#struct_approx_pos_1af3d4ed396da31ddd03e38c3ec39e6d97">lo</a>, <a href="#struct_approx_pos_1a5ae679748ce64d7bd20ced8294aa7e38">hi</a>) centered around an approximate position <a href="#struct_approx_pos_1a15681ae7f380b336075fba2e0b98f242">pos</a> of the sought key.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="class_compressed_p_g_m_index">class <code>CompressedPGMIndex</code></h1>
+<p>A space-efficient and compressed index that finds the position of a sought key within a radius of <code>Epsilon</code>.</p>
+<p>This is a variant of the <a href="#class_p_g_m_index">PGMIndex</a> that internally uses compression to reduce the space of the index.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li>
+<p><code>K</code> the type of the indexed elements</p>
+</li>
+<li>
+<p><code>Epsilon</code> the maximum error allowed in the last level of the index</p>
+</li>
+<li>
+<p><code>EpsilonRecursive</code> the maximum error allowed in the upper levels of the index</p>
+</li>
+<li>
+<p><code>Floating</code> the floating-point type to use for slopes</p>
+</li>
+</ul>
+<h2 id="summary-1">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public  </code><a href="#class_compressed_p_g_m_index_1ad224bf9e741240ff996a730478098660"><code>CompressedPGMIndex</code></a><code>() = default</code></td>
+<td>Constructs an empty index.</td>
+</tr>
+<tr>
+<td><code>public  explicit </code><a href="#class_compressed_p_g_m_index_1a3f7c011aba5b5a3eae36c12b3a497cc0"><code>CompressedPGMIndex</code></a><code>(const std::vector&lt;K&gt; &amp; data)</code></td>
+<td>Constructs the compressed index on the given sorted data.</td>
+</tr>
+<tr>
+<td><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_compressed_p_g_m_index_1a5973bd197be03cbd9515a432caa60ec0"><code>CompressedPGMIndex</code></a><code>(Iterator first,Iterator last)</code></td>
+<td>Constructs the compressed index on the sorted data in the range [first, last).</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a4fa3157ce2052d843b838b964ad0c40d"><code>size_in_bytes</code></a><code>() const</code></td>
+<td>Returns the size of the index in bytes.</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#struct_approx_pos"><code>ApproxPos</code></a><code> </code><a href="#class_compressed_p_g_m_index_1a28056483e3453bfa5658300a58e7ce30"><code>find_approximate_position</code></a><code>(K key) const</code></td>
+<td>Returns the approximate position of a key.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a2f373f626224a146b723916daf600fac"><code>segments_count</code></a><code>() const</code></td>
+<td>Returns the number of segments in the last level of the index.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a356d8e13725fa2799f696a23439e1ca4"><code>height</code></a><code>() const</code></td>
+<td>Returns the number of levels in the index.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="members">Members</h2>
+<h4 id="class_compressed_p_g_m_index_1ad224bf9e741240ff996a730478098660"><code>public  </code><a href="#class_compressed_p_g_m_index_1ad224bf9e741240ff996a730478098660"><code>CompressedPGMIndex</code></a><code>() = default</code></h4>
+<p>Constructs an empty index.</p>
+<h4 id="class_compressed_p_g_m_index_1a3f7c011aba5b5a3eae36c12b3a497cc0"><code>public  explicit </code><a href="#class_compressed_p_g_m_index_1a3f7c011aba5b5a3eae36c12b3a497cc0"><code>CompressedPGMIndex</code></a><code>(const std::vector&lt;K&gt; &amp; data)</code></h4>
+<p>Constructs the compressed index on the given sorted data.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>data</code> the vector of keys, must be sorted</li>
+</ul>
+<h4 id="class_compressed_p_g_m_index_1a5973bd197be03cbd9515a432caa60ec0"><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_compressed_p_g_m_index_1a5973bd197be03cbd9515a432caa60ec0"><code>CompressedPGMIndex</code></a><code>(Iterator first,Iterator last)</code></h4>
+<p>Constructs the compressed index on the sorted data in the range [first, last).</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>first</code> <code>last</code> the range containing the sorted elements to be indexed</li>
+</ul>
+<h4 id="class_compressed_p_g_m_index_1a4fa3157ce2052d843b838b964ad0c40d"><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a4fa3157ce2052d843b838b964ad0c40d"><code>size_in_bytes</code></a><code>() const</code></h4>
+<p>Returns the size of the index in bytes.</p>
+<p><strong>Returns</strong>:
+the size of the index in bytes</p>
+<h4 id="class_compressed_p_g_m_index_1a28056483e3453bfa5658300a58e7ce30"><code>public </code><a href="#struct_approx_pos"><code>ApproxPos</code></a><code> </code><a href="#class_compressed_p_g_m_index_1a28056483e3453bfa5658300a58e7ce30"><code>find_approximate_position</code></a><code>(K key) const</code></h4>
+<p>Returns the approximate position of a key.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> the value of the element to search for</li>
+</ul>
+<p><strong>Returns</strong>:
+a struct with the approximate position</p>
+<h4 id="class_compressed_p_g_m_index_1a2f373f626224a146b723916daf600fac"><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a2f373f626224a146b723916daf600fac"><code>segments_count</code></a><code>() const</code></h4>
+<p>Returns the number of segments in the last level of the index.</p>
+<p><strong>Returns</strong>:
+the number of segments</p>
+<h4 id="class_compressed_p_g_m_index_1a356d8e13725fa2799f696a23439e1ca4"><code>public size_t </code><a href="#class_compressed_p_g_m_index_1a356d8e13725fa2799f696a23439e1ca4"><code>height</code></a><code>() const</code></h4>
+<p>Returns the number of levels in the index.</p>
+<p><strong>Returns</strong>:
+the number of levels in the index</p>
+<h1 id="class_dynamic_p_g_m_index">class <code>DynamicPGMIndex</code></h1>
+<p>A sorted associative container that contains key-value pairs with unique keys.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li>
+<p><code>K</code> the type of a key</p>
+</li>
+<li>
+<p><code>V</code> the type of a value</p>
+</li>
+<li>
+<p><code>PGMType</code> the type of <a href="#class_p_g_m_index">PGMIndex</a> to use in the container</p>
+</li>
+<li>
+<p><code>MinIndexedLevel</code> the minimum level (of size 2^MinIndexedLevel) on which a <code>PGMType</code> index is constructed</p>
+</li>
+</ul>
+<h2 id="summary-2">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public  </code><a href="#class_dynamic_p_g_m_index_1a2a116d7f54c45b22dd8ed2825be3e1df"><code>DynamicPGMIndex</code></a><code>()</code></td>
+<td>Constructs an empty container.</td>
+</tr>
+<tr>
+<td><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_dynamic_p_g_m_index_1a99514c07979ab0b37c4625b1a5ad546c"><code>DynamicPGMIndex</code></a><code>(Iterator first,Iterator last)</code></td>
+<td>Constructs the container on the sorted data in the range [first, last).</td>
+</tr>
+<tr>
+<td><code>public void </code><a href="#class_dynamic_p_g_m_index_1af18531054acea5e08aa19d4c027b78fb"><code>insert</code></a><code>(const K &amp; key,const V &amp; value)</code></td>
+<td>Inserts an element into the container. If the container already contain an element with an equivalent key its value is updated with <code>value</code>.</td>
+</tr>
+<tr>
+<td><code>public void </code><a href="#class_dynamic_p_g_m_index_1ac9a1311763e765fd83b54895be632483"><code>erase</code></a><code>(const K &amp; key)</code></td>
+<td>Removes the specified element from the container.</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a11f14b215b193d172022e89fad393c0a"><code>find</code></a><code>(const K &amp; key) const</code></td>
+<td>Finds an element with key equivalent to <code>key</code>.</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a4cbd382a4974e3bbf07c23f98cce4357"><code>lower_bound</code></a><code>(const K &amp; key) const</code></td>
+<td>Returns an iterator pointing to the first element that is not less than (i.e. greater or equal to) <code>key</code>.</td>
+</tr>
+<tr>
+<td><code>public bool </code><a href="#class_dynamic_p_g_m_index_1ab2f68857bccb6ac11ed4e0aef74b2007"><code>empty</code></a><code>() const</code></td>
+<td>Checks if the container has no elements, i.e. whether <a href="#class_dynamic_p_g_m_index_1ac4e362135cb2444837cbcd87da19d796">begin()</a> == <a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658">end()</a>.</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1ac4e362135cb2444837cbcd87da19d796"><code>begin</code></a><code>() const</code></td>
+<td>Returns an iterator to the beginning.</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658"><code>end</code></a><code>() const</code></td>
+<td>Returns an iterator to the end.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1ab7cee278f8f7edbb6b84f5a52de2fe6f"><code>count</code></a><code>(const K &amp; key) const</code></td>
+<td>Returns the number of elements with key that compares equal to the specified argument key, which is either 1 or 0 since this container does not allow duplicates.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1aaea3614fa44ff574ddb41759b3f4ad38"><code>size_in_bytes</code></a><code>() const</code></td>
+<td>Returns the size of the container in bytes.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1aede78f7a5aa10bcabf6b8e6228f68713"><code>index_size_in_bytes</code></a><code>() const</code></td>
+<td>Returns the size of the index used in this container in bytes.</td>
+</tr>
+<tr>
+<td><code>typedef </code><a href="#class_dynamic_p_g_m_index_1abe07bed43fc062087b812294893d5dc9"><code>key_type</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a6562f98f95dcb6bbb502d30746560bb0"><code>mapped_type</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a43363c169c7858e778dd0d1a78ea9442"><code>value_type</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a4cae1b8f7d6cdea33e626eb4fa4362a7"><code>size_type</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="members-1">Members</h2>
+<h4 id="class_dynamic_p_g_m_index_1a2a116d7f54c45b22dd8ed2825be3e1df"><code>public  </code><a href="#class_dynamic_p_g_m_index_1a2a116d7f54c45b22dd8ed2825be3e1df"><code>DynamicPGMIndex</code></a><code>()</code></h4>
+<p>Constructs an empty container.</p>
+<h4 id="class_dynamic_p_g_m_index_1a99514c07979ab0b37c4625b1a5ad546c"><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_dynamic_p_g_m_index_1a99514c07979ab0b37c4625b1a5ad546c"><code>DynamicPGMIndex</code></a><code>(Iterator first,Iterator last)</code></h4>
+<p>Constructs the container on the sorted data in the range [first, last).</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>Iterator</code></li>
+</ul>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>first</code> <code>last</code> the range containing the sorted elements to be indexed</li>
+</ul>
+<h4 id="class_dynamic_p_g_m_index_1af18531054acea5e08aa19d4c027b78fb"><code>public void </code><a href="#class_dynamic_p_g_m_index_1af18531054acea5e08aa19d4c027b78fb"><code>insert</code></a><code>(const K &amp; key,const V &amp; value)</code></h4>
+<p>Inserts an element into the container. If the container already contain an element with an equivalent key its value is updated with <code>value</code>.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li>
+<p><code>key</code> element key to insert or update</p>
+</li>
+<li>
+<p><code>value</code> element value to insert</p>
+</li>
+</ul>
+<h4 id="class_dynamic_p_g_m_index_1ac9a1311763e765fd83b54895be632483"><code>public void </code><a href="#class_dynamic_p_g_m_index_1ac9a1311763e765fd83b54895be632483"><code>erase</code></a><code>(const K &amp; key)</code></h4>
+<p>Removes the specified element from the container.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> key value of the element to remove</li>
+</ul>
+<h4 id="class_dynamic_p_g_m_index_1a11f14b215b193d172022e89fad393c0a"><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a11f14b215b193d172022e89fad393c0a"><code>find</code></a><code>(const K &amp; key) const</code></h4>
+<p>Finds an element with key equivalent to <code>key</code>.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> key value of the element to search for</li>
+</ul>
+<p><strong>Returns</strong>:
+an iterator to an element with key equivalent to <code>key</code>. If no such element is found, <a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658">end()</a> is returned</p>
+<h4 id="class_dynamic_p_g_m_index_1a4cbd382a4974e3bbf07c23f98cce4357"><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a4cbd382a4974e3bbf07c23f98cce4357"><code>lower_bound</code></a><code>(const K &amp; key) const</code></h4>
+<p>Returns an iterator pointing to the first element that is not less than (i.e. greater or equal to) <code>key</code>.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> key value to compare the elements to</li>
+</ul>
+<p><strong>Returns</strong>:
+an iterator to an element with key not less than <code>key</code>. If no such element is found, <a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658">end()</a> is returned</p>
+<h4 id="class_dynamic_p_g_m_index_1ab2f68857bccb6ac11ed4e0aef74b2007"><code>public bool </code><a href="#class_dynamic_p_g_m_index_1ab2f68857bccb6ac11ed4e0aef74b2007"><code>empty</code></a><code>() const</code></h4>
+<p>Checks if the container has no elements, i.e. whether <a href="#class_dynamic_p_g_m_index_1ac4e362135cb2444837cbcd87da19d796">begin()</a> == <a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658">end()</a>.</p>
+<p><strong>Returns</strong>:
+true if the container is empty, false otherwise</p>
+<h4 id="class_dynamic_p_g_m_index_1ac4e362135cb2444837cbcd87da19d796"><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1ac4e362135cb2444837cbcd87da19d796"><code>begin</code></a><code>() const</code></h4>
+<p>Returns an iterator to the beginning.</p>
+<p><strong>Returns</strong>:
+an iterator to the beginning</p>
+<h4 id="class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658"><code>public </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a><code> </code><a href="#class_dynamic_p_g_m_index_1a917c8661609e8efeacbcd8ef8142a658"><code>end</code></a><code>() const</code></h4>
+<p>Returns an iterator to the end.</p>
+<p><strong>Returns</strong>:
+an iterator to the end</p>
+<h4 id="class_dynamic_p_g_m_index_1ab7cee278f8f7edbb6b84f5a52de2fe6f"><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1ab7cee278f8f7edbb6b84f5a52de2fe6f"><code>count</code></a><code>(const K &amp; key) const</code></h4>
+<p>Returns the number of elements with key that compares equal to the specified argument key, which is either 1 or 0 since this container does not allow duplicates.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> key value of the elements to count</li>
+</ul>
+<p><strong>Returns</strong>:
+number of elements with the given key, which is either 1 or 0.</p>
+<h4 id="class_dynamic_p_g_m_index_1aaea3614fa44ff574ddb41759b3f4ad38"><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1aaea3614fa44ff574ddb41759b3f4ad38"><code>size_in_bytes</code></a><code>() const</code></h4>
+<p>Returns the size of the container in bytes.</p>
+<p><strong>Returns</strong>:
+the size of the container in bytes</p>
+<h4 id="class_dynamic_p_g_m_index_1aede78f7a5aa10bcabf6b8e6228f68713"><code>public size_t </code><a href="#class_dynamic_p_g_m_index_1aede78f7a5aa10bcabf6b8e6228f68713"><code>index_size_in_bytes</code></a><code>() const</code></h4>
+<p>Returns the size of the index used in this container in bytes.</p>
+<p><strong>Returns</strong>:
+the size of the index used in this container in bytes</p>
+<h4 id="class_dynamic_p_g_m_index_1abe07bed43fc062087b812294893d5dc9"><code>typedef </code><a href="#class_dynamic_p_g_m_index_1abe07bed43fc062087b812294893d5dc9"><code>key_type</code></a></h4>
+<h4 id="class_dynamic_p_g_m_index_1a6562f98f95dcb6bbb502d30746560bb0"><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a6562f98f95dcb6bbb502d30746560bb0"><code>mapped_type</code></a></h4>
+<h4 id="class_dynamic_p_g_m_index_1a43363c169c7858e778dd0d1a78ea9442"><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a43363c169c7858e778dd0d1a78ea9442"><code>value_type</code></a></h4>
+<h4 id="class_dynamic_p_g_m_index_1a4cae1b8f7d6cdea33e626eb4fa4362a7"><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a4cae1b8f7d6cdea33e626eb4fa4362a7"><code>size_type</code></a></h4>
+<h4 id="class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>typedef </code><a href="#class_dynamic_p_g_m_index_1a04834574c8e0519c1119d5d5e4ab826c"><code>iterator</code></a></h4>
+<h1 id="class_p_g_m_index">class <code>PGMIndex</code></h1>
+<p>A space-efficient index that finds the position of a key within a radius of <code>Epsilon</code>.</p>
+<p>The index is constructed on a sorted sequence of keys. A query returns a struct <a href="#struct_approx_pos">ApproxPos</a> containing an approximate position of the sought key and the bounds of the range of size 2*Epsilon where the sought key is guaranteed to be found if present. In the case of repeated keys, the index finds the position of the first occurrence of a key.</p>
+<p>The <code>Epsilon</code> template parameter should be set according to the desired space-time trade-off. A smaller value makes the estimation more precise and the range smaller but at the cost of increased space usage.</p>
+<p>Internally the index uses a succinct piecewise linear mapping from keys to their position in the sorted order. This mapping is represented as a sequence of linear models (segments) which, if <code>EpsilonRecursive</code> is not zero, are themselves recursively indexed by other piecewise linear mappings.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li>
+<p><code>K</code> the type of the indexed elements</p>
+</li>
+<li>
+<p><code>Epsilon</code> the maximum error allowed in the last level of the index</p>
+</li>
+<li>
+<p><code>EpsilonRecursive</code> the maximum error allowed in the upper levels of the index</p>
+</li>
+<li>
+<p><code>Floating</code> the floating-point type to use for slopes</p>
+</li>
+</ul>
+<h2 id="summary-3">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public  </code><a href="#class_p_g_m_index_1ad3e94b8fbdc8560df696818cb43866b4"><code>PGMIndex</code></a><code>() = default</code></td>
+<td>Constructs an empty index.</td>
+</tr>
+<tr>
+<td><code>public  explicit </code><a href="#class_p_g_m_index_1a5bf318ddba6c9015fae81b36ab968038"><code>PGMIndex</code></a><code>(const std::vector&lt;K&gt; &amp; data)</code></td>
+<td>Constructs the index on the given sorted data.</td>
+</tr>
+<tr>
+<td><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_p_g_m_index_1a02403733b1362a51c07c377aaa96f882"><code>PGMIndex</code></a><code>(RandomIt first,RandomIt last)</code></td>
+<td>Constructs the index on the sorted data in the range [first, last).</td>
+</tr>
+<tr>
+<td><code>public </code><a href="#struct_approx_pos"><code>ApproxPos</code></a><code> </code><a href="#class_p_g_m_index_1aca4c3549ed3c2cc2b91844589fd00957"><code>find_approximate_position</code></a><code>(const K &amp; key) const</code></td>
+<td>Returns the approximate position of a key.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_p_g_m_index_1af9b42bae629e5635eaa0247f4f7a057b"><code>segments_count</code></a><code>() const</code></td>
+<td>Returns the number of segments in the last level of the index.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_p_g_m_index_1a16870ebb257ae4f3d829c96f6f596e05"><code>height</code></a><code>() const</code></td>
+<td>Returns the number of levels in the index.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#class_p_g_m_index_1ad2078f7935b4efe2ecada890577f8c87"><code>size_in_bytes</code></a><code>() const</code></td>
+<td>Returns the size of the index in bytes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="members-2">Members</h2>
+<h4 id="class_p_g_m_index_1ad3e94b8fbdc8560df696818cb43866b4"><code>public  </code><a href="#class_p_g_m_index_1ad3e94b8fbdc8560df696818cb43866b4"><code>PGMIndex</code></a><code>() = default</code></h4>
+<p>Constructs an empty index.</p>
+<h4 id="class_p_g_m_index_1a5bf318ddba6c9015fae81b36ab968038"><code>public  explicit </code><a href="#class_p_g_m_index_1a5bf318ddba6c9015fae81b36ab968038"><code>PGMIndex</code></a><code>(const std::vector&lt;K&gt; &amp; data)</code></h4>
+<p>Constructs the index on the given sorted data.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>data</code> the vector of keys, must be sorted</li>
+</ul>
+<h4 id="class_p_g_m_index_1a02403733b1362a51c07c377aaa96f882"><code>public template&lt;&gt;</code>  <br/><code>inline  </code><a href="#class_p_g_m_index_1a02403733b1362a51c07c377aaa96f882"><code>PGMIndex</code></a><code>(RandomIt first,RandomIt last)</code></h4>
+<p>Constructs the index on the sorted data in the range [first, last).</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>first</code> <code>last</code> the range containing the sorted elements to be indexed</li>
+</ul>
+<h4 id="class_p_g_m_index_1aca4c3549ed3c2cc2b91844589fd00957"><code>public </code><a href="#struct_approx_pos"><code>ApproxPos</code></a><code> </code><a href="#class_p_g_m_index_1aca4c3549ed3c2cc2b91844589fd00957"><code>find_approximate_position</code></a><code>(const K &amp; key) const</code></h4>
+<p>Returns the approximate position of a key.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><code>key</code> the value of the element to search for</li>
+</ul>
+<p><strong>Returns</strong>:
+a struct with the approximate position</p>
+<h4 id="class_p_g_m_index_1af9b42bae629e5635eaa0247f4f7a057b"><code>public size_t </code><a href="#class_p_g_m_index_1af9b42bae629e5635eaa0247f4f7a057b"><code>segments_count</code></a><code>() const</code></h4>
+<p>Returns the number of segments in the last level of the index.</p>
+<p><strong>Returns</strong>:
+the number of segments</p>
+<h4 id="class_p_g_m_index_1a16870ebb257ae4f3d829c96f6f596e05"><code>public size_t </code><a href="#class_p_g_m_index_1a16870ebb257ae4f3d829c96f6f596e05"><code>height</code></a><code>() const</code></h4>
+<p>Returns the number of levels in the index.</p>
+<p><strong>Returns</strong>:
+the number of levels in the index</p>
+<h4 id="class_p_g_m_index_1ad2078f7935b4efe2ecada890577f8c87"><code>public size_t </code><a href="#class_p_g_m_index_1ad2078f7935b4efe2ecada890577f8c87"><code>size_in_bytes</code></a><code>() const</code></h4>
+<p>Returns the size of the index in bytes.</p>
+<p><strong>Returns</strong>:
+the size of the index in bytes</p>
+<h1 id="struct_approx_pos">struct <code>ApproxPos</code></h1>
+<p>A struct that stores the result of a query to a <a href="#class_p_g_m_index">PGMIndex</a>, that is, a range [<a href="#struct_approx_pos_1af3d4ed396da31ddd03e38c3ec39e6d97">lo</a>, <a href="#struct_approx_pos_1a5ae679748ce64d7bd20ced8294aa7e38">hi</a>) centered around an approximate position <a href="#struct_approx_pos_1a15681ae7f380b336075fba2e0b98f242">pos</a> of the sought key.</p>
+<h2 id="summary-4">Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Members</th>
+<th>Descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>public size_t </code><a href="#struct_approx_pos_1a15681ae7f380b336075fba2e0b98f242"><code>pos</code></a></td>
+<td>The approximate position of the key.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#struct_approx_pos_1af3d4ed396da31ddd03e38c3ec39e6d97"><code>lo</code></a></td>
+<td>The lower bound of the range where the key can be found.</td>
+</tr>
+<tr>
+<td><code>public size_t </code><a href="#struct_approx_pos_1a5ae679748ce64d7bd20ced8294aa7e38"><code>hi</code></a></td>
+<td>The upper bound of the range where the key can be found.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="members-3">Members</h2>
+<h4 id="struct_approx_pos_1a15681ae7f380b336075fba2e0b98f242"><code>public size_t </code><a href="#struct_approx_pos_1a15681ae7f380b336075fba2e0b98f242"><code>pos</code></a></h4>
+<p>The approximate position of the key.</p>
+<h4 id="struct_approx_pos_1af3d4ed396da31ddd03e38c3ec39e6d97"><code>public size_t </code><a href="#struct_approx_pos_1af3d4ed396da31ddd03e38c3ec39e6d97"><code>lo</code></a></h4>
+<p>The lower bound of the range where the key can be found.</p>
+<h4 id="struct_approx_pos_1a5ae679748ce64d7bd20ced8294aa7e38"><code>public size_t </code><a href="#struct_approx_pos_1a5ae679748ce64d7bd20ced8294aa7e38"><code>hi</code></a></h4>
+<p>The upper bound of the range where the key can be found.</p>
+
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer">
+  Made with 👼 at <a href="https://www.di.unipi.it/en/">University of Pisa</a> by the <a href="http://acube.di.unipi.it">A³ Lab</a>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

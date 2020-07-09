@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="generator" content="Hugo 0.73.0" />
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>The PGM-index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<meta name="description" content="The Piecewise Geometric Model index (PGM-index) is a data structure that enables fast point and range searches in arrays of billions of items using orders of magnitude less space than traditional indexes." />
+<meta property="og:title" content="The PGM-index" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pgm.di.unipi.it" />
+<meta property="og:image" content="https://pgm.di.unipi.it/images/logo_raster.png" />
+<meta property="og:description" content="The Piecewise Geometric Model index (PGM-index) is a data structure that enables fast point and range searches in arrays of billions of items using orders of magnitude less space than traditional indexes." />
+<meta name="twitter:card" content="" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.5/vivus.min.js" integrity="sha256-EQbVGDv8AeB/IA3V0dU2OSI1PDKb8wEG3sRDAdkgoGc=" crossorigin="anonymous"></script>
+
+
+  <link rel="icon" href="https://pgm.di.unipi.it/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.61d8cde5a12c74d3a0d83f3e3ef8998e0c155b035e09e2d8c60236ea7c11ce25.css">
+  
+
+  
+
+</head>
+
+<body class='page '>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home active">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home active">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+    
+    
+
+<div class="strip ">
+  <div class="container pt-4">
+    <div class="row">
+      <div class="col-12 center page-home ">
+        <object id="logo-svg" type="image/svg+xml" data="images/logo.svg" style="height: 120px; width: auto;" class="mb-2" ></object>
+        <script>
+          
+          
+          
+          
+          
+          new Vivus("logo-svg", {duration: 600, type: "oneByOne", reverseStack: true, animTimingFunction: Vivus.EASE_OUT});
+        </script>
+        
+        <h1 class="title">The PGM-index</h1>
+        <div class="content" >
+          
+          <p>The <em>Piecewise Geometric Model index</em> (PGM-index) is a data structure that enables fast lookup, predecessor, range searches and updates in arrays of billions of items using orders of magnitude less space than traditional indexes while providing the same worst-case query time guarantees.</p>
+<p>
+  <a class="button button-primary col-sm-auto p-1 mr-1 mb-1" href="docs">
+    <img src="images/info.svg" style="height: 1.3rem; vertical-align: text-bottom; padding-right: 3px;">
+    Read the docs
+  </a>
+  <a class="button button-primary col-sm-auto p-1 mr-1 mb-1" href="https://github.com/gvinciguerra/PGM-index">
+    <img src="images/github.svg" style="height: 1.3rem; vertical-align: text-bottom; padding-right: 3px;">
+    View on GitHub 
+  </a>
+  <a class="button button-primary col-sm-auto p-1 mr-1 mb-1" href="https://dl.acm.org/doi/pdf/10.14778/3389133.3389135">
+    <img src="images/paper.svg" style="height: 1.3rem; vertical-align: text-bottom; padding-right: 3px;">
+    Grab the paper
+  </a>
+</p>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="pt-2" style=" background:rgb(247, 247, 247); ">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+          <p style="text-align: justify; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;">Unlike traditional tree-based indexes that are blind to the possible regularity present in the input data, the PGM-index exploits a learned mapping between the indexed keys and their location in memory. The succinctness of this mapping, coupled with a peculiar recursive construction algorithm, makes the PGM-index a data structure that dominates traditional indexes by orders of magnitude in space while still offering the best query and update time performance.</p>
+<p style="text-align: justify; -webkit-hyphens: auto; -ms-hyphens: auto; hyphens: auto;">In addition to that, the PGM-index offers <strong>compression</strong>, <strong>distribution-awareness</strong>, and <strong>multi-criteria</strong> adaptability, thus resulting suitable for addressing the increasing demand for big data systems that adapt to the rapidly changing constraints imposed by the wide range of modern devices and applications.</p>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="pt-2" style="">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+            <h1>Features</h1>
+          
+          <div class="row">
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Learned" src="images/ai.svg"></div> 
+      <h2 class="feature-title">Learned</h2>
+      <div class="feature-content">It is one of the first results on learned indexes which achieves astonishing performance by capturing the distribution of the input data.</div>
+    </div>
+  </div>
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Optimal" src="images/optimal.svg"></div> 
+      <h2 class="feature-title">Optimal</h2>
+      <div class="feature-content">Unlike some early results, the PGM&#8209;index is a learned index with provably optimal time and space complexity guarantees.</div>
+    </div>
+  </div>
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Memory efficient" src="images/memory.svg"></div> 
+      <h2 class="feature-title">Memory efficient</h2>
+      <div class="feature-content">It always consumes less space than traditional tree-based indexes, often orders of magnitude less. If this is not enough, there is even a compressed version.</div>
+    </div>
+  </div>
+  <div class="w-100"></div>
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Fast construction" src="images/fast.svg"></div> 
+      <h2 class="feature-title">Fast construction</h2>
+      <div class="feature-content">Even on gigabytes of data, its construction speed matches the one of traditional indexes.</div>
+    </div>
+  </div>
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Tunable page size" src="images/settings.svg"></div> 
+      <h2 class="feature-title">Tunable</h2>
+      <div class="feature-content">You can tune the index to adapt to the memory hierarchy, space occupancy and time efficiency by properly setting one of its parameters.</div>
+    </div>
+  </div>
+  <div class="col mb-2">
+    <div class="feature">
+      <div class="feature-image"><img alt="Multicriteria" src="images/multicriteria.svg"></div> 
+      <h2 class="feature-title">Automatic tuner</h2>
+      <div class="feature-content">The automatic tuner lets you specify a maximum lookup time (or space footprint) and get the corresponding most space-efficient (or fastest) PGM&#8209;index configuration.</div>
+    </div>
+  </div>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="pt-2" style=" background:rgb(247, 247, 247); ">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+            <h1>Running example</h1>
+          
+          <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;pgm_index.hpp&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Generate some random data
+</span><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dataset</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">generate</span><span class="p">(</span><span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dataset</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">);</span>
+    <span class="n">dataset</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dataset</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+    <span class="c1">// Construct the PGM-index
+</span><span class="c1"></span>    <span class="k">const</span> <span class="kt">int</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span> <span class="c1">// space-time trade-off parameter
+</span><span class="c1"></span>    <span class="n">PGMIndex</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">&gt;</span> <span class="n">index</span><span class="p">(</span><span class="n">dataset</span><span class="p">);</span>
+
+    <span class="c1">// Query the PGM-index
+</span><span class="c1"></span>    <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">approx_range</span> <span class="o">=</span> <span class="n">index</span><span class="p">.</span><span class="n">find_approximate_position</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">approx_range</span><span class="p">.</span><span class="n">lo</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">approx_range</span><span class="p">.</span><span class="n">hi</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Read more about the C++ API <a href="/docs/cpp-reference/">here</a>.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="pt-2" style="">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+            <h1>Cite us</h1>
+          
+          <p>If you use the library please put a link to this website and cite the following paper:</p>
+<p style="font-size:0.85rem;padding:0 10px">Paolo Ferragina and Giorgio Vinciguerra. The PGM-index: a fully-dynamic compressed learned index with provable worst-case bounds. PVLDB, 13(8): 1162-1175, 2020.</p>
+<div class="highlight"><pre class="chroma"><code class="language-tex" data-lang="tex">@article<span class="nb">{</span>Ferragina:2020pgm,
+  Author = <span class="nb">{</span>Paolo Ferragina and Giorgio Vinciguerra<span class="nb">}</span>,
+  Title = <span class="nb">{</span>The <span class="nb">{</span>PGM-index<span class="nb">}</span>: a fully-dynamic compressed learned index with provable worst-case bounds<span class="nb">}</span>,
+  Year = <span class="nb">{</span>2020<span class="nb">}</span>,
+  Volume = <span class="nb">{</span>13<span class="nb">}</span>,
+  Number = <span class="nb">{</span>8<span class="nb">}</span>,
+  Pages = <span class="nb">{</span>1162--1175<span class="nb">}</span>,
+  Doi = <span class="nb">{</span>10.14778/3389133.3389135<span class="nb">}</span>,
+  Url = <span class="nb">{</span>https://pgm.di.unipi.it<span class="nb">}</span>,
+  Issn = <span class="nb">{</span>2150-8097<span class="nb">}</span>,
+  Journal = <span class="nb">{{</span>PVLDB<span class="nb">}}}</span>
+</code></pre></div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="pt-2" style=" background:rgb(247, 247, 247); ">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+            <h1>Some interesting uses of the PGM-index</h1>
+          
+          <p>We would love to be informed whether you used our code in your projects. We will list the most interesting applications of the PGM-index here!</p>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="pt-2" style="">
+  <div class="container pt-4 pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="content">
+          
+            <h1>Contribute</h1>
+          
+          <p>There are a lot of ways to contribute on this project, just to mention a few:</p>
+<ol>
+<li><del>Engineering the support for insertions and deletions.</del> <a href="docs/cpp-reference/#class_dynamic_p_g_m_index">done</a>!</li>
+<li>Making the index SIMD aware. For example, you could set the error to the SIMD register width and use vector instructions to traverse the levels of the index with no branches.</li>
+<li>Adding support for concurrent and batch queries.</li>
+</ol>
+<p>Feel free to submit issues and pull requests in the GitHub repository.</p>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+    
+  </div>
+
+  <div class="footer">
+  Made with 👼 at <a href="https://www.di.unipi.it/en/">University of Pisa</a> by the <a href="http://acube.di.unipi.it">A³ Lab</a>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>

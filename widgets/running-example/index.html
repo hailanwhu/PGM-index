@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Running example - The PGM-index</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://pgm.di.unipi.it/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.61d8cde5a12c74d3a0d83f3e3ef8998e0c155b035e09e2d8c60236ea7c11ce25.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://pgm.di.unipi.it">The PGM-index</a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/docs/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+    
+    
+<h1 class="title">Running example</h1>
+<div class="content ">
+  <div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&#34;pgm_index.hpp&#34;</span><span class="cp">
+</span><span class="cp"></span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Generate some random data
+</span><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">dataset</span><span class="p">(</span><span class="mi">1000000</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">generate</span><span class="p">(</span><span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dataset</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">rand</span><span class="p">);</span>
+    <span class="n">dataset</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">dataset</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+    <span class="c1">// Construct the PGM-index
+</span><span class="c1"></span>    <span class="k">const</span> <span class="kt">int</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mi">128</span><span class="p">;</span> <span class="c1">// space-time trade-off parameter
+</span><span class="c1"></span>    <span class="n">PGMIndex</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">&gt;</span> <span class="n">index</span><span class="p">(</span><span class="n">dataset</span><span class="p">);</span>
+
+    <span class="c1">// Query the PGM-index
+</span><span class="c1"></span>    <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">approx_range</span> <span class="o">=</span> <span class="n">index</span><span class="p">.</span><span class="n">find_approximate_position</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">lo</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">approx_range</span><span class="p">.</span><span class="n">lo</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">hi</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">approx_range</span><span class="p">.</span><span class="n">hi</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">std</span><span class="o">::</span><span class="n">lower_bound</span><span class="p">(</span><span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Read more about the C++ API <a href="/docs/cpp-reference/">here</a>.</p>
+
+</div>
+</div>
+
+    
+  </div>
+
+  <div class="footer">
+  Made with 👼 at <a href="https://www.di.unipi.it/en/">University of Pisa</a> by the <a href="http://acube.di.unipi.it">A³ Lab</a>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>
